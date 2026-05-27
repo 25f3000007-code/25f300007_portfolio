@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | My Portfolio</title>
+    <!-- Linking the custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome Icons for visual flair -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <!-- Brand Logo -->
+            <a href="index.html" class="logo-group">
+                <div class="logo-box">M</div>
+                <span class="logo-text">My Portfolio</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link active-link">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="menu-toggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="mobile-nav hidden">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="projects.html" class="mobile-nav-link">Projects</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section" style="border-top: none; background: none;">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="divider"></div>
+                    <p class="section-desc">Discover key repositories and assignments built with version control.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project Card -->
+                    <div class="project-card">
+                        <div class="project-body">
+                            <div class="project-title-area">
+                                <span class="project-icon">
+                                    <i class="fa-solid fa-folder-open"></i>
+                                </span>
+                                <h3 class="project-title">Workshop Portfolio Project</h3>
+                            </div>
+                            <p class="project-desc">
+                                This exact website repository serves as the core capstone artifact of the Git & GitHub Workshop. It highlights beautiful semantics, aesthetic dark styling, and professional coding design principles.
+                            </p>
+                            <div class="tags-group">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">Git/GitHub</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <span class="status-indicator">
+                                <span class="dot active"></span> Active Development
+                            </span>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="repo-link">
+                                View Repository <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mock Future Project Card -->
+                    <div class="project-card planned">
+                        <div class="project-body">
+                            <div class="project-title-area">
+                                <span class="project-icon">
+                                    <i class="fa-solid fa-code-fork"></i>
+                                </span>
+                                <h3 class="project-title">Upcoming Workshop Exercises</h3>
+                            </div>
+                            <p class="project-desc">
+                                Future storage and automation tools created with shell scripting and Linux integrations. To be tracked systematically using modular GitHub feature branches.
+                            </p>
+                            <div class="tags-group">
+                                <span class="tag">Bash</span>
+                                <span class="tag">Shell Tools</span>
+                                <span class="tag">Automation</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <span class="status-indicator">
+                                <span class="dot planned-dot"></span> Planned Pipeline
+                            </span>
+                            <span class="repo-status">Locked Repository</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">&copy; 2026. Designed for Git & GitHub Workshop Portfolio Project.</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive script logic -->
+    <script>
+        // Toggle Mobile Menu Open & Close
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark';
+            }
+        });
+    </script>
+</body>
+</html>

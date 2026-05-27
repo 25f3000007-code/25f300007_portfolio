@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | My Portfolio</title>
+    <!-- Linking the custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome Icons for visual flair -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <!-- Brand Logo -->
+            <a href="index.html" class="logo-group">
+                <div class="logo-box">M</div>
+                <span class="logo-text">My Portfolio</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link active-link">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="menu-toggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="mobile-nav hidden">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="projects.html" class="mobile-nav-link">Projects</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <div class="divider"></div>
+                    <p class="section-desc">Have any questions about the workshop? Drop a message here!</p>
+                </div>
+
+                <div class="contact-card">
+                    <!-- Custom Alerts for Submission -->
+                    <div id="alert-box" class="alert hidden"></div>
+
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-name" class="form-label">Your Name</label>
+                                <input type="text" id="form-name" required class="form-input" placeholder="e.g. John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email" class="form-label">IITM Email</label>
+                                <input type="email" id="form-email" required class="form-input" placeholder="e.g. roll@smail.iitm.ac.in">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-msg" class="form-label">Message</label>
+                            <textarea id="form-msg" rows="4" required class="form-textarea" placeholder="Write your message here..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-submit">
+                                Send Message <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">&copy; 2026. Designed for Git & GitHub Workshop Portfolio Project.</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive script logic -->
+    <script>
+        // Toggle Mobile Menu Open & Close
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark';
+            }
+        });
+
+        // Safe mock Form submission
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const alertBox = document.getElementById('alert-box');
+            const name = document.getElementById('form-name').value;
+
+            // Make custom notification box visible
+            alertBox.classList.remove('hidden');
+            alertBox.innerHTML = `🌟 Thank you, <strong>${name}</strong>! Your message was submitted successfully.`;
+            
+            // Auto reset form fields
+            document.getElementById('contact-form').reset();
+
+            // Clear after 6 seconds
+            setTimeout(() => {
+                alertBox.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
