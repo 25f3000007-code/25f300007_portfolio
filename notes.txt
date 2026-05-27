@@ -1,0 +1,13 @@
+1
+2
+3
+4
+5
+This portfolio project is created during Git & GitHub workshop.
+Git helps track changes in project files.
+GitHub helps in collaboration and project hosting.
+Commit-4
+1
+2
+git add .
+git commit -m "Add skills and notes files"
